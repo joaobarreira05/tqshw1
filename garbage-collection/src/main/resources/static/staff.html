@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZeroMonos - Painel do Staff</title>
+    <style>
+        body { font-family: sans-serif; margin: 2em; }
+        .container { max-width: 800px; margin: auto; }
+        select { width: 100%; padding: 0.5em; margin-bottom: 1em; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        .actions-cell { display: flex; flex-wrap: wrap; gap: 0.5em; align-items: center; }
+        .actions-cell select { flex: 1; min-width: 140px; }
+        .actions-cell button { padding: 0.4em 0.8em; cursor: pointer; }
+        .status-updated { animation: highlight 1.6s ease-out; }
+        @keyframes highlight {
+            0% { background-color: #e0f7e9; }
+            100% { background-color: transparent; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Painel de Controlo do Staff</h2>
+        <label for="municipalitySelect">Filtrar por Município:</label>
+        <select id="municipalitySelect">
+            <option value="">A carregar municípios...</option>
+        </select>
+
+        <hr>
+
+        <h3>Agendamentos</h3>
+        <table id="bookingsTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Descrição</th>
+                    <th>Morada</th>
+                    <th>Data</th>
+                    <th>Estado</th>
+                    <th>Atualizar Estado</th>
+                </tr>
+            </thead>
+            <tbody id="bookingsTbody">
+                <!-- As linhas da tabela serão inseridas aqui pelo JavaScript -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="staff.js"></script>
+</body>
+</html>

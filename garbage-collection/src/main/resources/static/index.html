@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZeroMonos - Agendamento de Recolha</title>
+    <style>
+        body { font-family: sans-serif; margin: 2em; }
+        .container { max-width: 600px; margin: auto; padding: 1em; border: 1px solid #ccc; border-radius: 5px; }
+        .form-group { margin-bottom: 1em; }
+        label { display: block; margin-bottom: 0.5em; }
+        input, select, button { width: 100%; padding: 0.5em; box-sizing: border-box; }
+        button { background-color: #28a745; color: white; border: none; cursor: pointer; }
+        #result, #statusResult { margin-top: 1em; padding: 1em; background-color: #f0f0f0; border-radius: 5px; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Agendar Nova Recolha</h2>
+        <form id="bookingForm">
+            <div class="form-group">
+                <label for="municipality">Município:</label>
+                <select id="municipality" name="municipality" required>
+                    <option value="">A carregar municípios...</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="itemDescription">Descrição dos Itens:</label>
+                <input type="text" id="itemDescription" name="itemDescription" required>
+            </div>
+            <div class="form-group">
+                <label for="fullAddress">Morada Completa:</label>
+                <input type="text" id="fullAddress" name="fullAddress" required>
+            </div>
+            <div class="form-group">
+                <label for="bookingDate">Data de Recolha:</label>
+                <input type="date" id="bookingDate" name="bookingDate" required>
+            </div>
+            <div class="form-group">
+                <label for="timeSlot">Período:</label>
+                <select id="timeSlot" name="timeSlot" required>
+                    <option value="MORNING">Manhã (09:00 - 13:00)</option>
+                    <option value="AFTERNOON">Tarde (14:00 - 18:00)</option>
+                </select>
+            </div>
+            <button type="submit">Agendar</button>
+        </form>
+        <div id="result" style="display:none;"></div>
+    </div>
+
+    <hr style="margin: 2em 0;">
+
+    <div class="container">
+        <h2>Consultar Agendamento</h2>
+        <form id="statusForm">
+            <div class="form-group">
+                <label for="bookingToken">Código de Agendamento:</label>
+                <input type="text" id="bookingToken" name="bookingToken" required>
+            </div>
+            <button type="submit">Consultar</button>
+        </form>
+        <div id="statusResult" style="display:none;"></div>
+    </div>
+
+    <!-- O nosso JavaScript virá aqui -->
+    <script src="app.js"></script>
+
+</body>
+</html>
